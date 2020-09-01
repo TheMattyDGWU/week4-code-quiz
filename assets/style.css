@@ -25,13 +25,21 @@
 }
 
 body {
-  /* font parameters */
+  background-color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
 }
 
+.jumbotron {
+  background-color: lightgray;
+}
+
 #details, #playTime {
   text-align: left;
+}
+
+.card-title {
+  background-color: #d2b48c;
 }
 
 button {
@@ -77,8 +85,8 @@ button {
   /* background-color: #db248c;   */
   background-color: #d2b48c;  
   /* provides spacing between the top and bottom nav bars and the content */
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* provide spaceing around the text */
   padding: 40px;
 }
@@ -86,8 +94,8 @@ button {
 #playTime {
   background-color: #d2b48c;
   /* provides spacing between the top and bottom nav bars and the content */
-  margin-top: 20px;
-  margin-bottom: 80px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* provide spaceing around the text */
   padding: 40px;
 } 
@@ -106,7 +114,7 @@ li {
 }
 
 li:hover {
-  background-color: #9e9268;
+  background-color: #8caad2;
 }
 
 #answer-image {

@@ -41,7 +41,7 @@ function init() {
     // creates button to start the game
     let startJsQuiz = document.createElement("button");
     startJsQuiz.setAttribute("id", "startJSQuiz");
-    startJsQuiz.setAttribute("class", "btn btn-secondary");
+    startJsQuiz.setAttribute("class", "btn btn-primary");
     startJsQuiz.textContent = "Start the Quiz";
 
     mainEl.appendChild(heading);

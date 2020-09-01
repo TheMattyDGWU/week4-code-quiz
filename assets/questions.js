@@ -10,11 +10,6 @@ var jsQuestions = [
     answer: "parentheses"
   },
   {
-    title: "HTML stands for _____?",
-    choices: ["Hyper Text Markup Language", "High Text Markup Language", "Hyper Tabular Markup Language", "None of these"],
-    answer: "Hyper Text Markup Language"
-  },
-  {
     title: "DOM is an abreviation for ____",
     choices: ["Data Object Mode", "Dude On Meds", "Document Object Model", "Data Object Modality"],
     answer: "Document Object Model"
@@ -25,8 +20,8 @@ var jsQuestions = [
     answer: ".navbar-text"
   },
   {
-    title: "The three foundational languages of the web are HTML, CSS, and CoffeeBeans!",
+    title: "True or False: 'let' creates a local variable, while 'var' creates a global variable.",
     choices: ["True", "False"],
-    answer: "False"
+    answer: "True"
   }
 ];

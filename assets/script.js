@@ -1,14 +1,10 @@
-// p;ull in page objects
+// pull in page objects
 let highscoreDiv = document.querySelector("#highscore");
 let gameTimerEl = document.querySelector("#gameTimer");
 let quesTimerEl = document.querySelector("#quesTimer");
 let mainEl = document.querySelector("#details");
 let secEl = document.querySelector("#playTime");
 let timerTab = document.querySelector("#timers");
-
-
-// let questionEl = document.querySelector("#question")
-// let answersListEl = document.querySelector("#answer-list")
 
 // set global variables - how do we move these into localized
 var test = false;
@@ -27,46 +23,45 @@ var questionInterval;
 // draw instruction
 init();
 
-// var startButton = document.querySelector("#startQuiz");
-
 // function to display instructions
 function init() {
-    clearDetails();
+    clearSecDetails();
     reset();
     // creates Heading element for main page
     let heading = document.createElement("p");
     heading.setAttribute("id", "main-heading");
-    heading.textContent = "This game gives you the opportunity to take a time quiz!";
+    heading.textContent = "Lets test out your JavaScript Fundamentals!";
 
     // creates elements with the instructions for the game
     let instructions = document.createElement("p");
     instructions.setAttribute("id", "instructions");
-    instructions.textContent = " You will have 5 seconds to answer each question. If you answer correctly you will score points. The quicker you answer the more points you will score. If you score incorrectly you will not lose points, but you will be penalized time.";
+    instructions.textContent = "You will have 5 seconds to answer each question. If you answer correctly you will score points. The quicker you answer the more points you will score. If you score incorrectly you will not lose points, but you will be penalized time.";
 
     // adding more question - this should move into loop or function
     // creates button to start the game
     let startJsQuiz = document.createElement("button");
     startJsQuiz.setAttribute("id", "startJSQuiz");
     startJsQuiz.setAttribute("class", "btn btn-secondary");
-    startJsQuiz.textContent = "Start Javascript Quiz";
-
-
+    startJsQuiz.textContent = "Start the Quiz";
 
     mainEl.appendChild(heading);
     mainEl.appendChild(instructions);
     mainEl.appendChild(startJsQuiz);
 
-
     startJsQuiz.addEventListener("click", function () {
         quizType = "Java Script";
         playQuiz(jsQuestions);
     });
-
 }
 
 // function to clear details element of all children
-function clearDetails() {
+function clearSecDetails() {
     secEl.innerHTML = "";
+}
+
+// function to clear details element of all children
+function clearMainDetails() {
+    mainEl.innerHTML = "";
 }
 
 function reset() {
@@ -93,7 +88,7 @@ function playQuiz(questionSet) {
     timerTab.setAttribute("style", "visibility: visible;");
 
     // Start timers here
-    gameDuration = quiz.length * 15;
+    gameDuration = quiz.length * 20;
     if (test) { console.log("duration g,q:", gameDuration, questionDuration); }
 
     startGameTimer();
@@ -129,18 +124,15 @@ function presentQuestion() {
         return;
     }
 
-    // call question timer here
-    // reduceQUiz global
-
     //sets current object (cur - question) by pulling out of reducedQuiz array leaving the remaining quetions in the array
     curQuestion = quiz.pop();
 
     //clears html to draw questions
-    clearDetails();
+    clearSecDetails();
 
     // add question to screen
     //build out display for new item
-    let question = document.createElement("h1");
+    let question = document.createElement("h3");
     // adds data value
     question.setAttribute("question", curQuestion.title);
     question.textContent = curQuestion.title;
@@ -166,7 +158,6 @@ function presentQuestion() {
     if (test) { console.log("cur", curQuestion); }
 
     // get answer from user
-    // using the anymous function delays the invocation of the scoreAnswer
     choiceBox.addEventListener("click", function () {
         scoreAnswer(curQuestion);
     });
@@ -197,16 +188,15 @@ function scoreAnswer(cur) {
     }
 }
 
-// TODO incomplete does not disply the correct color!!!! arghh
 function showAnswers(cur) {
     if (test) { console.log("--- showAnswer ---"); }
     // if (test) { console.log("sa length",cur.choices.length);}
-    if (test) { console.log("sa qanda", cur); }
-    if (test) { console.log("sselected ", selectedItem); }
+    // if (test) { console.log("sa qanda", cur); }
+    // if (test) { console.log("sselected ", selectedItem); }
 
 
     for (let i = 0; i < cur.choices.length; i++) {
-        if (test) { console.log("sa in for ", i); }
+        // if (test) { console.log("sa in for ", i); }
 
         let questid = "#questionNum-" + i;
         // if (test) { console.log("sa qn", questid );}
@@ -214,19 +204,19 @@ function showAnswers(cur) {
 
         // if (test) { console.log("questrow",questrow);}
 
-        if (test) { console.log("saf selected" + selectedItem + "<"); }
-        if (test) { console.log("saf color test >" + cur.choices[i] + "<"); }
+        // if (test) { console.log("saf selected" + selectedItem + "<"); }
+        // if (test) { console.log("saf color test >" + cur.choices[i] + "<"); }
 
         if (cur.choices[i] !== cur.answer) {
-            if (test) { console.log("color test flase"); }
+            //if (test) { console.log("color test flase"); }
             questrow.setAttribute("style", "background-color: red");
         } else {
-            if (test) { console.log("color test true"); }
+            // if (test) { console.log("color test true"); }
             questrow.setAttribute("style", "background-color: green");
         }
     }
     // pause so user can see results
-    setTimeout(presentQuestion, 2500);
+    setTimeout(presentQuestion, 2000);
 }
 
 // function to set time for game timer
@@ -281,7 +271,7 @@ function stopTime() {
 function endOfGame() {
     if (test) { console.log("--- endOfGame ---"); }
     stopTime();
-    clearDetails();
+    clearSecDetails();
 
     timerTab.setAttribute("style", "visibility: hidden;");
 
@@ -323,6 +313,7 @@ function endOfGame() {
     secEl.appendChild(playAgain);
 
     playAgain.addEventListener("click", init);
+    clearMainDetails();
 
     initialsInput.addEventListener("input", function () {
         initialsInput.value = initialsInput.value.toUpperCase();
@@ -349,7 +340,8 @@ function endOfGame() {
 
 function highScores() {
     stopTime();
-    clearDetails();
+    clearSecDetails();
+    clearMainDetails();
 
     timerTab.setAttribute("style", "visibility: hidden;");
 
@@ -359,7 +351,7 @@ function highScores() {
     // draw heading
     let heading = document.createElement("h2");
     heading.setAttribute("id", "main-heading");
-    heading.textContent = "Top 5 High Score Hall of Fame";
+    heading.textContent = "Top 5 High Scores";
 
     secEl.appendChild(heading);
 
@@ -398,6 +390,7 @@ function highScores() {
     secEl.appendChild(playAgain);
 
     playAgain.addEventListener("click", init);
+
 }
 
 highscoreDiv.addEventListener("click", highScores);

@@ -30,13 +30,17 @@ body {
   font-size: 1em;
 }
 
+#details, #playTime {
+  text-align: left;
+}
+
 button {
   margin: 1em;
 }
 
 .navbar {
-  background-color: #73919b;  
-  color: #b6d7e2;  
+  background-color: #d2b48c;  
+  color: black;  
   /* pulls everything down to push up against bottom border */
   padding-bottom: 0;
 
@@ -45,14 +49,14 @@ button {
 
   /* creates solid line for the bottom border  */
   border-bottom: solid;
-  border-bottom-color: #ccc;
+  border-bottom-color: black;
   width: 100%;
 }
 
 #navbar-title {
   padding: 15px;
   font-size: 30px;
-  color: #fff !important; /* TODO can we do this without the !important */
+  color: black !important;
 }
 
 /* container for nav header */
@@ -61,33 +65,29 @@ button {
   padding-right: 5%;
 }
 
-.nav-link {
-  text-decoration: none;
-  /* padding-left: 0%; */
-  /* padding-right: 0%; */
-  /* color: #777 !important; */
-}
-
 /* Change the color of links on hover */
 .nav-link:hover {
-  /* question how do i impact these values without using important */
-  /* background-color: #4Cabc2 !important; */
-  background-color: #b6d7e2;  
+    /* background-color: #4Cabc2 !important; */
+  background-color: white;  
   /* color: #fff !important; */
   color: #666;
 }
 
-.right {
- 
-}
-
 #details {
-  /* background-color: #73919b;   */
-  background-color: #b6d7e2;  
+  /* background-color: #db248c;   */
+  background-color: #d2b48c;  
   /* provides spacing between the top and bottom nav bars and the content */
   margin-top: 20px;
   margin-bottom: 80px;
+  /* provide spaceing around the text */
+  padding: 40px;
+}
 
+#playTime {
+  background-color: #d2b48c;
+  /* provides spacing between the top and bottom nav bars and the content */
+  margin-top: 20px;
+  margin-bottom: 80px;
   /* provide spaceing around the text */
   padding: 40px;
 } 

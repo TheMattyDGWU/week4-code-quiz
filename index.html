@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Link to Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Link to internal CSS Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <!-- Link to stylesheet for Google Font Family 'ASAP' -->
+    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@600&display=swap" rel="stylesheet">
+    <!-- link to stylesheet for FontAwesome (copy to clipboard button) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- link to stylesheet for CloudFlare social media buttons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coding Quiz!</title>
+</head>
+
+<body>
+    <!-- _________________________________ NAVBAR __________________________________ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <!-- LEFT SIDE -->
+            <a class="navbar-brand" href="index.html">
+                <h2>Matthew Daniels</h2>
+            </a>
+            <!-- Social Media Buttons -->
+            <a href="https://www.linkedin.com/in/themattyd" target="_blank" class="fa fa-linkedin-in"></a>
+            <a href="https://www.facebook.com/rancho.matty.d" target="_blank" class="fa fa-facebook"></a>
+
+            <!-- RIGHT SIDE Hidden NavBar to keep social media buttons to the left -->
+            <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+        </div>
+    </nav>
+
+
+    <!-- ___________________________ JUMBOTRON _________________________________-->
+    <div class="jumbotron">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <div id="highscore" class="nav-item nav-link"> View High Scores</div>
+                <h1 id="navbar-title">Coding Quiz</h1>
+                <table id=timers style="visibility: hidden;">
+                    <tr>
+                        <td> Time left in Game: </td>
+                        <td> <span id="gameTimer" class="nav-item"></span> </td>
+                    </tr>
+                    <tr>
+                        <td>Time left for Question:</td>
+                        <td> <span id="quesTimer" class="nav-item"></span> </td>
+                    </tr>
+                </table>
+            </div>
+        </nav>
+    </div>
+
+
+    <main class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="container-fluid">
+                    <div class="card bg-light mt-1">
+                        <h2 class="card-title">Instructions</h2>
+                        <section id="details"> </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="container-fluid">
+                    <div class="card bg-light mt-1">
+                        <h2 class="card-title">Play!</h2>
+                        <section id="playTime"> </section>
+                    </div>
+                </div>
+            </div>
+            <!-- start Content -->
+        </div>
+
+    </main>
+
+    <!-- _____________ SCRIPT LINKS FOR JAVASCRIPT AND QUESTIONS.JS____________ -->
+    <script src='assets/questions.js'></script>
+    <!-- read in javascript file  -->
+    <script src='assets/script.js'></script>
+
+    <!-- ______________________________ FOOTER ________________________________ -->
+    <footer class="footer">
+        <div class="container" style="text-align: center"> Copyright &copy;
+            <script>document.write(new Date().getFullYear())</script> Rancho Relaxo Productions
+        </div>
+    </footer>
+
+</body>
+
+</html>

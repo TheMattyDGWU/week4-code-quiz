@@ -5,6 +5,7 @@ let quesTimerEl = document.querySelector("#quesTimer");
 let mainEl = document.querySelector("#details");
 let secEl = document.querySelector("#playTime");
 let timerTab = document.querySelector("#timers");
+var restartButton;
 
 // set global variables - how do we move these into localized
 var test = false;
@@ -25,7 +26,7 @@ init();
 
 // function to display instructions
 function init() {
-    clearSecDetails();
+    
     reset();
     // creates Heading element for main page
     let heading = document.createElement("p");
@@ -208,10 +209,10 @@ function showAnswers(cur) {
 
         if (cur.choices[i] !== cur.answer) {
             //if (test) { console.log("color test flase"); }
-            questrow.setAttribute("style", "background-color: red");
+            questrow.setAttribute("style", "background-color: #e07a5f");
         } else {
             // if (test) { console.log("color test true"); }
-            questrow.setAttribute("style", "background-color: green");
+            questrow.setAttribute("style", "background-color: #d2e9af");
         }
     }
     // pause so user can see results
@@ -228,11 +229,6 @@ function setGameTime() {
 
 
 function renderTime() {
-    // if (test) { console.log(" --- renderTime --- "); }
-    // if (test) { console.log("gameSecElapsed " + gameSecElapsed); }
-    // if (test) { console.log("gameDuration " + gameDuration); }
-    // if (test) { console.log("questionDuration " + questionDuration); }
-
     gameTimerEl.textContent = gameDuration - gameSecElapsed;
     quesTimerEl.textContent = questionDuration - questionSecElapsed;
 
@@ -283,11 +279,11 @@ function endOfGame() {
     instructions.setAttribute("id", "instructions");
     instructions.textContent = " Your score is " + score;
 
-    // creates button to start the game
+    // creates button to RESTART the game
     let playAgain = document.createElement("button");
     playAgain.setAttribute("id", "playAgain");
-    playAgain.setAttribute("class", "btn btn-secondary");
-    playAgain.textContent = "Play again";
+    playAgain.setAttribute("class", "btn btn-success");
+    playAgain.textContent = "Play Again!";
 
     // creates input for user to add initials
     let par = document.createElement("p");
@@ -312,7 +308,7 @@ function endOfGame() {
     secEl.appendChild(playAgain);
 
     playAgain.addEventListener("click", init);
-    clearMainDetails();
+    
 
     initialsInput.addEventListener("input", function () {
         initialsInput.value = initialsInput.value.toUpperCase();
@@ -340,7 +336,8 @@ function endOfGame() {
 function highScores() {
     stopTime();
     clearSecDetails();
-    clearMainDetails();
+    var myobj = document.getElementById("details");
+    myobj.remove();
 
     timerTab.setAttribute("style", "visibility: hidden;");
 
@@ -358,7 +355,7 @@ function highScores() {
     // TODO check for this error 
     if (storedScores !== null) {
         // sort scores
-        storedScores.sort((a, b) => (a.score < b.score) ? 1 : -1);
+        storedScores.sort((a, b) => (a.score - b.score));
 
         // sets the number of scores to display to 5 or the number of games played. Which ever is less
         let numScores2Display = 5;
@@ -383,8 +380,8 @@ function highScores() {
     // creates button to start the game
     let playAgain = document.createElement("button");
     playAgain.setAttribute("id", "playAgain");
-    playAgain.setAttribute("class", "btn btn-secondary");
-    playAgain.textContent = "Play!";
+    playAgain.setAttribute("class", "btn btn-success");
+    playAgain.textContent = "Play Again!";
 
     secEl.appendChild(playAgain);
 

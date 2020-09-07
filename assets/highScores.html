@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Link to internal CSS Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <!-- link to stylesheet for FontAwesome (copy to clipboard button) -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
@@ -41,8 +41,8 @@
     <div class="jumbotron">
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
-                <button id="highscore" class="nav-item nav-link btn btn-danger navbar-btn">High
-                    Scores</a></button>
+                <button id="highscore" class="nav-item nav-link btn btn-danger navbar-btn"><a
+                        href="highScores.html">High Scores</a></button>
                 <h1 id="navbar-title">Coding Quiz</h1>
                 <table id=timers style="visibility: hidden;">
                     <tr>
@@ -58,34 +58,7 @@
         </nav>
     </div>
 
-
-    <main class="container">
-        <div class="row">
-            <div class="col-4">
-                <div class="container-fluid">
-                    <div class="text-center border-secondary mt-1">
-                        <section id="details">
-                            <h2>Instructions</h2>
-                        </section>
-                    </div>
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="container-fluid">
-                    <div class="text-center border-secondary mt-1">
-                        <h2>Play!</h2>
-                        <section id="playTime"></section>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- _____________ SCRIPT LINKS FOR JAVASCRIPT AND QUESTIONS.JS____________ -->
-    <script src='assets/questions.js'></script>
-    <!-- read in javascript file  -->
-    <script src='assets/script.js'></script>
+    <h1>High Scores!</h1>
 
     <!-- ______________________________ FOOTER ________________________________ -->
     <footer class="footer">

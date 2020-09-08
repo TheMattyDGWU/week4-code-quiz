@@ -107,15 +107,12 @@ function setUpQuestions(list) {
     return randomQuestion;
 }
 
-// function to redraw screen with next question 
+// _________________________  PRESENT QUESTION _________________________
 function presentQuestion() {
 
+    questionSecElapsed = 0;  // reset timer
 
-    //reset amount of time allowed to answer question
-    questionSecElapsed = 0;
-
-    // check to see if there's no more questions, then stop the game
-    if (quiz.length === 0) {
+    if (quiz.length === 0) {  // if no more question, then end the game
         endOfGame();
         return;
     }
@@ -123,8 +120,8 @@ function presentQuestion() {
     //sets current object (cur - question) by pulling it out of reduced Quiz array leaving the remaining questions in the array
     curQuestion = quiz.pop();
 
-    //clears html to draw questions
-    clearSecDetails();
+
+    clearSecDetails(); // clear out any previous info/details in the GamePlay container
 
     // add question to screen
     //build out display for new item

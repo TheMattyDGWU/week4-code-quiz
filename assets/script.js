@@ -26,7 +26,7 @@ init();
 
 // function to display instructions
 function init() {
-    
+
     reset();
     // creates Heading element for main page
     let heading = document.createElement("p");
@@ -308,7 +308,7 @@ function endOfGame() {
     secEl.appendChild(playAgain);
 
     playAgain.addEventListener("click", init);
-    
+
 
     initialsInput.addEventListener("input", function () {
         initialsInput.value = initialsInput.value.toUpperCase();
@@ -367,7 +367,7 @@ function highScores() {
             var s = storedScores[i];
 
             var p = document.createElement("p");
-            p.textContent = s.name + " " + s.score + " ( " + s.type + " )";
+            p.textContent = s.name + " " + s.score;
             secEl.appendChild(p);
         }
     } else {

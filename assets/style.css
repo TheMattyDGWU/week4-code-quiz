@@ -91,8 +91,6 @@ button {
   padding: 40px;
 }
 
-
-
 #playTime {
   background-color: #d2b48c;
   /* provides spacing between the top and bottom nav bars and the content */
@@ -102,7 +100,6 @@ button {
   padding: 40px;
 } 
  
-
 li {
   height: 50px;
   margin-top: 5px;
@@ -123,10 +120,6 @@ li:hover {
   float: left;
   padding-right: 1em;
   padding-top: 0.25em;
-}
-
-#startQuiz{
-  /* TODO style buttom */
 }
 
 /* Footer */

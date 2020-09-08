@@ -6,7 +6,7 @@ let mainEl = document.querySelector("#details");
 let secEl = document.querySelector("#playTime");
 let timerTab = document.querySelector("#timers");
 
-// set global variables - how do we move these into localized
+// set global variables 
 var score = 0;
 var quiz = {};
 var quizType = "";
@@ -25,8 +25,8 @@ init();
 // function to display instructions
 function init() {
     clearMainDetails();
-
     reset();
+
     // creates Heading element for main page
     let heading = document.createElement("p");
     heading.setAttribute("id", "main-heading");
@@ -253,18 +253,14 @@ function endOfGame() {
     instructions.setAttribute("id", "instructions");
     instructions.textContent = " Your score is " + score;
 
-    // creates button to RESTART the game
-    let playAgain = document.createElement("button");
-    playAgain.setAttribute("id", "playAgain");
-    playAgain.setAttribute("class", "btn btn-success");
-    playAgain.textContent = "Play Again!";
+
 
     // creates input for user to add initials
     let par = document.createElement("p");
 
     let initialsLabel = document.createElement("label");
     initialsLabel.setAttribute("for", "userInitials");
-    initialsLabel.textContent = "Enter Initials: ";
+    initialsLabel.textContent = "Enter Initials:   ";
 
     let initialsInput = document.createElement("input");
     initialsInput.setAttribute("id", "userInitials");
@@ -273,6 +269,11 @@ function endOfGame() {
     initialsInput.setAttribute("maxlength", "3");
     initialsInput.setAttribute("size", "3");
 
+    // creates button to RESTART the game
+    let playAgain = document.createElement("button");
+    playAgain.setAttribute("id", "playAgain");
+    playAgain.setAttribute("class", "btn btn-success");
+    playAgain.textContent = "Play Again!";
 
     secEl.appendChild(heading);
     secEl.appendChild(instructions);
@@ -281,7 +282,7 @@ function endOfGame() {
     secEl.appendChild(par);
     secEl.appendChild(playAgain);
 
-    playAgain.addEventListener("click", init());
+    playAgain.addEventListener("click", reload);
 
 
     initialsInput.addEventListener("input", function () {
@@ -306,9 +307,12 @@ function endOfGame() {
     });
 }
 
+function reload() {
+    location.reload();
+}
+
 function highScores() {
     stopTime();
-    clearSecDetails();
     var myobj = document.getElementById("details");
     myobj.remove();
 
@@ -358,7 +362,7 @@ function highScores() {
 
     secEl.appendChild(playAgain);
 
-    playAgain.addEventListener("click", init);
+    playAgain.addEventListener("click", reload);
 
 }
 

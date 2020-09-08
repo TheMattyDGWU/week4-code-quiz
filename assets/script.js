@@ -7,7 +7,6 @@ let secEl = document.querySelector("#playTime");
 let timerTab = document.querySelector("#timers");
 
 // set global variables - how do we move these into localized
-var test = false;
 var score = 0;
 var quiz = {};
 var quizType = "";
@@ -25,6 +24,7 @@ init();
 
 // function to display instructions
 function init() {
+    clearMainDetails();
 
     reset();
     // creates Heading element for main page
@@ -78,7 +78,6 @@ function reset() {
 
 //start game
 function playQuiz(questionSet) {
-    if (test) { console.log("--- playQuiz ---"); }
     // select quiz randomize questions
 
     quiz = setUpQuestions(questionSet);
@@ -88,7 +87,6 @@ function playQuiz(questionSet) {
 
     // Start timers here
     gameDuration = quiz.length * 20;
-    if (test) { console.log("duration g,q:", gameDuration, questionDuration); }
 
     startGameTimer();
     renderTime();
@@ -99,7 +97,7 @@ function playQuiz(questionSet) {
 
 // function to get random question out of array
 function setUpQuestions(arr) {
-    if (test) { console.log("--- setUpQuestions ---"); }
+
 
     let ranQuest = [];
 
@@ -111,8 +109,7 @@ function setUpQuestions(arr) {
 
 // function to redraw screen with  question 
 function presentQuestion() {
-    if (test) { console.log("--- presentQuestion ---"); }
-    // if (test) {console.log("cur.choices[i] " + cur.choices);}
+
 
     //reset time allows to answer question
     questionSecElapsed = 0;
@@ -154,7 +151,7 @@ function presentQuestion() {
         choiceBox.appendChild(listChoice)
     }
 
-    if (test) { console.log("cur", curQuestion); }
+
 
     // get answer from user
     choiceBox.addEventListener("click", function () {
@@ -164,47 +161,34 @@ function presentQuestion() {
 }
 
 function scoreAnswer(cur) {
-    if (test) { console.log("--- scoreAnswer ---"); }
+
     // ensure that the event on the li
     var e = event.target;
     if (e.matches("li")) {
         let selectedItem = e.textContent;
-        // if (test) { console.log("check quiz " + quiz.length); }
-        if (test) { console.log("selectedItem quiz " + selectedItem); }
-        // if (test) { console.log("selectedItem cur " , cur.answer); }
         if (selectedItem === cur.answer) {
-            // if (test) { console.log("correct answer");}
             score += questionDuration - questionSecElapsed;
-            //TODO music 
         } else {
-            if (test) { console.log("wrong answer"); }
             //penelty for being wrong
             gameDuration -= 10;
         }
-        if (test) { console.log("sselected ", selectedItem); }
         showAnswers(cur);
         // presentQuestion();
     }
 }
 
 function showAnswers(cur) {
-    if (test) { console.log("--- showAnswer ---"); }
-    // if (test) { console.log("sa length",cur.choices.length);}
-    // if (test) { console.log("sa qanda", cur); }
-    // if (test) { console.log("sselected ", selectedItem); }
-
 
     for (let i = 0; i < cur.choices.length; i++) {
-        // if (test) { console.log("sa in for ", i); }
 
         let questid = "#questionNum-" + i;
         let questrow = document.querySelector(questid);
 
         if (cur.choices[i] !== cur.answer) {
-            //if (test) { console.log("color test flase"); }
+            // Wrong Answer Highlight Color
             questrow.setAttribute("style", "background-color: #e07a5f");
         } else {
-            // if (test) { console.log("color test true"); }
+            // Right Answer Highlight Color
             questrow.setAttribute("style", "background-color: #d2e9af");
         }
     }
@@ -214,8 +198,8 @@ function showAnswers(cur) {
 
 // function to set time for game timer
 function setGameTime() {
-    if (test) { console.log("--- setGameTime ---"); }
-    if (test) { console.log("gameDuration " + gameDuration); }
+
+
     clearInterval(gameInterval);
     gameSeconds = gameDuration;
 }
@@ -228,7 +212,6 @@ function renderTime() {
     if ((questionDuration - questionSecElapsed) < 1) {
         // game penelty for letting timer run out
         gameDuration -= 10;
-        if (test) { console.log("too slow"); }
         presentQuestion();
     }
 
@@ -238,7 +221,6 @@ function renderTime() {
 }
 
 function startGameTimer() {
-    if (test) { console.log("--- startGameTimer ---"); }
     setGameTime();
 
     gameInterval = setInterval(function () {
@@ -249,7 +231,6 @@ function startGameTimer() {
 }
 
 function stopTime() {
-    if (test) { console.log("--- stopTime --- "); }
     gameSeconds = 0;
     questionSeconds = 0;
     clearInterval(gameInterval);
@@ -257,9 +238,9 @@ function stopTime() {
 
 // function of end of game
 function endOfGame() {
-    if (test) { console.log("--- endOfGame ---"); }
     stopTime();
     clearSecDetails();
+    clearMainDetails();
 
     timerTab.setAttribute("style", "visibility: hidden;");
 
@@ -300,7 +281,7 @@ function endOfGame() {
     secEl.appendChild(par);
     secEl.appendChild(playAgain);
 
-    playAgain.addEventListener("click", init);
+    playAgain.addEventListener("click", init());
 
 
     initialsInput.addEventListener("input", function () {
@@ -312,7 +293,6 @@ function endOfGame() {
 
             //get highscores from memory
             let storedScores = JSON.parse(localStorage.getItem("highScores"));
-            if (test) { console.log("storedScore", storedScores); }
 
             if (storedScores !== null) {
                 storedScores.push(thisScore[0]);
@@ -345,7 +325,6 @@ function highScores() {
     secEl.appendChild(heading);
 
     // Render a new li for each score
-    // TODO check for this error 
     if (storedScores !== null) {
         // sort scores
         storedScores.sort((a, b) => (b.score - a.score));
@@ -371,9 +350,10 @@ function highScores() {
 
 
     // creates button to start the game
+    // creates button to RESTART the game
     let playAgain = document.createElement("button");
     playAgain.setAttribute("id", "playAgain");
-    playAgain.setAttribute("class", "btn btn-success");
+    playAgain.setAttribute("class", "btn btn-primary");
     playAgain.textContent = "Play Again!";
 
     secEl.appendChild(playAgain);

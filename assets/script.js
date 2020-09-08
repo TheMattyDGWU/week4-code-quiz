@@ -1,11 +1,10 @@
 // pull in page objects
-let highscoreDiv = document.querySelector("#highscore");
+var highscoreDiv = document.querySelector("#highscore");
 let gameTimerEl = document.querySelector("#gameTimer");
 let quesTimerEl = document.querySelector("#quesTimer");
 let mainEl = document.querySelector("#details");
 let secEl = document.querySelector("#playTime");
 let timerTab = document.querySelector("#timers");
-var restartButton;
 
 // set global variables - how do we move these into localized
 var test = false;
@@ -54,7 +53,7 @@ function init() {
     });
 }
 
-// function to clear details element of all children
+// function to clear PlayTime element of all children
 function clearSecDetails() {
     secEl.innerHTML = "";
 }
@@ -199,13 +198,7 @@ function showAnswers(cur) {
         // if (test) { console.log("sa in for ", i); }
 
         let questid = "#questionNum-" + i;
-        // if (test) { console.log("sa qn", questid );}
         let questrow = document.querySelector(questid);
-
-        // if (test) { console.log("questrow",questrow);}
-
-        // if (test) { console.log("saf selected" + selectedItem + "<"); }
-        // if (test) { console.log("saf color test >" + cur.choices[i] + "<"); }
 
         if (cur.choices[i] !== cur.answer) {
             //if (test) { console.log("color test flase"); }

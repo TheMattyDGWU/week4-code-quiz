@@ -1,4 +1,4 @@
-// pull in page objects
+// Set variables for page elements (local except for highscoreDiv)
 var highscoreDiv = document.querySelector("#highscore");
 let gameTimerEl = document.querySelector("#gameTimer");
 let quesTimerEl = document.querySelector("#quesTimer");
@@ -6,7 +6,7 @@ let mainEl = document.querySelector("#details");
 let secEl = document.querySelector("#playTime");
 let timerTab = document.querySelector("#timers");
 
-// set global variables 
+// Set the global variables 
 var score = 0;
 var quiz = {};
 var quizType = "";
@@ -19,52 +19,52 @@ var questionDuration = 15;
 var questionSecElapsed = 0;
 var questionInterval;
 
-// draw instruction
+// Function call to start building the Instructions and Play-Time containers
 init();
 
-// function to display instructions
+// Function to display instructions
 function init() {
     clearMainDetails();
     reset();
 
-    // creates Heading element for main page
+    // Creates the heading element for main page
     let heading = document.createElement("p");
     heading.setAttribute("id", "main-heading");
     heading.textContent = "Let's test out your JavaScript Fundamentals!";
 
-    // creates elements with the instructions for the game
+    // Creates element with the instructions for the game
     let instructions = document.createElement("p");
     instructions.setAttribute("id", "instructions");
     instructions.textContent = "You will have 5 seconds to answer each question. If you answer correctly you will score points. The quicker you answer the more points you will score. If you score incorrectly you will not lose points, but you will be penalized time.";
 
-    // creates button to start the game
+    // Creates button to start the game
     let startJsQuiz = document.createElement("button");
     startJsQuiz.setAttribute("id", "startJSQuiz");
     startJsQuiz.setAttribute("class", "btn btn-primary");
     startJsQuiz.textContent = "Start the Quiz";
 
+    // place the heading info, instructions, and play button on the screen
     mainEl.appendChild(heading);
     mainEl.appendChild(instructions);
     mainEl.appendChild(startJsQuiz);
 
     startJsQuiz.addEventListener("click", function () {
-        // quizType = "Java Script";
         playQuiz(jsQuestions);
     });
 }
 
-// function to clear PlayTime element of all children
+// Function to clear PlayTime element of all children
 function clearSecDetails() {
     secEl.innerHTML = "";
 }
 
-// function to clear details element of all children
+// Function to clear Instructions element of all children
 function clearMainDetails() {
     mainEl.innerHTML = "";
 }
 
+// Clear out the previous score and reset all the game timers
 function reset() {
-    quizType = "";
     score = 0;
 
     gameDuration = 0;
@@ -79,24 +79,23 @@ function reset() {
 //start game
 function playQuiz(questionSet) {
     // select quiz randomize questions
+    quiz = setUpQuestions(questionSet);  // _______________________________ THIS DOESN'T WORK YET ___________________
 
-    quiz = setUpQuestions(questionSet);
-
-    // displays timers
+    // Reveal the timers
     timerTab.setAttribute("style", "visibility: visible;");
 
-    // Start timers here
+    // Start timer and give it a time based upon the number of questions in questions.js
     gameDuration = quiz.length * 20;
 
     startGameTimer();
     renderTime();
 
-    //go to first question
+    //Go to the first question
     presentQuestion();
 }
 
-// function to get random question out of array
-function setUpQuestions(list) {
+// function to pull random question out of array
+function setUpQuestions(list) {   // ___________________ ERROR: CURRENTLY THIS IS ONLY BEING CALLED ONCE ____________________
 
     let randomQuestion = [];
     for (let i = 0; i < list.length; i++) {
@@ -117,7 +116,7 @@ function presentQuestion() {
         return;
     }
 
-    //sets current object (cur - question) by pulling it out of reduced Quiz array leaving the remaining questions in the array
+    //sets current object (curQuestion) by pulling it out of reduced Quiz array leaving the remaining questions in the array
     curQuestion = quiz.pop();
 
 

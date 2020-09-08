@@ -46,6 +46,11 @@ button {
   margin: 1em;
 }
 
+.startJSQuiz {
+  display: flex; justify-content: center;
+}
+
+
 .navbar {
   background-color: #d2b48c;  
   color: black;  

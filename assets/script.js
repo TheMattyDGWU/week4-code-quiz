@@ -31,7 +31,7 @@ function init() {
     // creates Heading element for main page
     let heading = document.createElement("p");
     heading.setAttribute("id", "main-heading");
-    heading.textContent = "Lets test out your JavaScript Fundamentals!";
+    heading.textContent = "Let's test out your JavaScript Fundamentals!";
 
     // creates elements with the instructions for the game
     let instructions = document.createElement("p");

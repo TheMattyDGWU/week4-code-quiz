@@ -78,6 +78,7 @@ button {
   padding-right: 5%;
 }
 
+
 /* Change the color of links on hover */
 .nav-link:hover {
     /* background-color: #4Cabc2 !important; */
@@ -101,7 +102,7 @@ button {
   /* provides spacing between the top and bottom nav bars and the content */
   margin-top: 10px;
   margin-bottom: 10px;
-  /* provide spaceing around the text */
+  /* provide spacing around the text */
   padding: 40px;
 } 
  

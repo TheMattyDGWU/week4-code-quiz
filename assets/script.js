@@ -48,7 +48,7 @@ function init() {
     mainEl.appendChild(startJsQuiz);
 
     startJsQuiz.addEventListener("click", function () {
-        quizType = "Java Script";
+        // quizType = "Java Script";
         playQuiz(jsQuestions);
     });
 }
@@ -96,31 +96,31 @@ function playQuiz(questionSet) {
 }
 
 // function to get random question out of array
-function setUpQuestions(arr) {
+function setUpQuestions(list) {
 
+    let randomQuestion = [];
+    for (let i = 0; i < list.length; i++) {
+        randomQuestion.push(list[i]);
 
-    let ranQuest = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        ranQuest.push(arr[i]);
     }
-    return ranQuest;
+    alert("here it is!")
+    return randomQuestion;
 }
 
-// function to redraw screen with  question 
+// function to redraw screen with next question 
 function presentQuestion() {
 
 
-    //reset time allows to answer question
+    //reset amount of time allowed to answer question
     questionSecElapsed = 0;
 
-    // checks for no more questions and exits
+    // check to see if there's no more questions, then stop the game
     if (quiz.length === 0) {
         endOfGame();
         return;
     }
 
-    //sets current object (cur - question) by pulling out of reducedQuiz array leaving the remaining quetions in the array
+    //sets current object (cur - question) by pulling it out of reduced Quiz array leaving the remaining questions in the array
     curQuestion = quiz.pop();
 
     //clears html to draw questions
@@ -151,29 +151,25 @@ function presentQuestion() {
         choiceBox.appendChild(listChoice)
     }
 
-
-
     // get answer from user
     choiceBox.addEventListener("click", function () {
         scoreAnswer(curQuestion);
     });
-    // calls for the next questions
 }
 
 function scoreAnswer(cur) {
 
-    // ensure that the event on the li
+    // 
     var e = event.target;
     if (e.matches("li")) {
         let selectedItem = e.textContent;
         if (selectedItem === cur.answer) {
             score += questionDuration - questionSecElapsed;
         } else {
-            //penelty for being wrong
+            //penalty for being wrong
             gameDuration -= 10;
         }
         showAnswers(cur);
-        // presentQuestion();
     }
 }
 
@@ -210,7 +206,7 @@ function renderTime() {
     quesTimerEl.textContent = questionDuration - questionSecElapsed;
 
     if ((questionDuration - questionSecElapsed) < 1) {
-        // game penelty for letting timer run out
+        // game penalty for letting timer run out
         gameDuration -= 10;
         presentQuestion();
     }

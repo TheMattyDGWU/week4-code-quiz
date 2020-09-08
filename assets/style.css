@@ -30,12 +30,12 @@ body {
   font-size: 1em;
 }
 
-.jumbotron {
-  background-color: #457b9d;
-}
-
 button {
   margin: 1em;
+}
+
+.jumbotron {
+  background-color: #457b9d;
 }
 
 .startJSQuiz {
@@ -45,13 +45,8 @@ button {
 .navbar {
   background-color: #d2b48c;  
   color: black;  
-  /* pulls everything down to push up against bottom border */
   padding-bottom: 0;
-
-  /* allows ??? to control the horizontal position */
   padding-left: 0;
-
-  /* creates solid line for the bottom border  */
   border-bottom: solid;
   border-bottom-color: black;
   width: 100%;
@@ -73,40 +68,34 @@ button {
 
 /* Change the color of links on hover */
 .nav-link:hover {
-    /* background-color: #4Cabc2 !important; */
   background-color: white;  
-  /* color: #fff !important; */
   color: #666;
 }
 
-/* collapses space between menu options when they stack vertically*/
+/* collapses space between menu options when they stack vertically */
   .nav-link{
     padding: 1px;
   }
 
 #details {
   /* background-color: #db248c;   */
-  background-color: #d2b48c;  
-  /* provides spacing between the top and bottom nav bars and the content */
+  background-color: #d2b48c;
   margin-top: 10px;
   margin-bottom: 10px;
-  /* provide spacing around the text */
   padding: 40px;
   text-align: left;
 }
 
 #playTime {
   background-color: #d2b48c;
-  /* provides spacing between the top and bottom nav bars and the content */
   margin-top: 10px;
   margin-bottom: 10px;
-  /* provide spacing around the text */
   padding: 40px;
   text-align: left;
 } 
 
 
-/* line items */
+/* Line Items - Questions/Answers */
 li {
   height: 50px;
   margin-top: 5px;

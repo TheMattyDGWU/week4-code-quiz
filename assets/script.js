@@ -355,7 +355,7 @@ function highScores() {
     // TODO check for this error 
     if (storedScores !== null) {
         // sort scores
-        storedScores.sort((a, b) => (a.score - b.score));
+        storedScores.sort((a, b) => (b.score - a.score));
 
         // sets the number of scores to display to 5 or the number of games played. Which ever is less
         let numScores2Display = 5;

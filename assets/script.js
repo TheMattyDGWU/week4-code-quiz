@@ -192,7 +192,6 @@ function showAnswers(cur) {
 // function to set time for game timer
 function setGameTime() {
 
-
     clearInterval(gameInterval);
     gameSeconds = gameDuration;
 }
@@ -246,8 +245,6 @@ function endOfGame() {
     instructions.setAttribute("id", "instructions");
     instructions.textContent = " Your score is " + score;
 
-
-
     // creates input for user to add initials
     let par = document.createElement("p");
 
@@ -276,7 +273,6 @@ function endOfGame() {
     secEl.appendChild(playAgain);
 
     playAgain.addEventListener("click", reload);
-
 
     initialsInput.addEventListener("input", function () {
         initialsInput.value = initialsInput.value.toUpperCase();
@@ -346,7 +342,6 @@ function highScores() {
     }
 
 
-    // creates button to start the game
     // creates button to RESTART the game
     let playAgain = document.createElement("button");
     playAgain.setAttribute("id", "playAgain");
@@ -356,7 +351,6 @@ function highScores() {
     secEl.appendChild(playAgain);
 
     playAgain.addEventListener("click", reload);
-
 }
 
 highscoreDiv.addEventListener("click", highScores);

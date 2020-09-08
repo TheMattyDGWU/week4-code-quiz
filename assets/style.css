@@ -34,14 +34,6 @@ body {
   background-color: #457b9d;
 }
 
-.container-fluid {
-  background-color: #d2b48c;
-}
-
-#details, #playTime {
-  text-align: left;
-}
-
 button {
   margin: 1em;
 }
@@ -49,7 +41,6 @@ button {
 .startJSQuiz {
   display: flex; justify-content: center;
 }
-
 
 .navbar {
   background-color: #d2b48c;  
@@ -74,6 +65,7 @@ button {
 
 /* container for nav header */
 .container-fluid {
+  background-color: #d2b48c;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -87,14 +79,20 @@ button {
   color: #666;
 }
 
+/* collapses space between menu options when they stack vertically*/
+  .nav-link{
+    padding: 1px;
+  }
+
 #details {
   /* background-color: #db248c;   */
   background-color: #d2b48c;  
   /* provides spacing between the top and bottom nav bars and the content */
   margin-top: 10px;
   margin-bottom: 10px;
-  /* provide spaceing around the text */
+  /* provide spacing around the text */
   padding: 40px;
+  text-align: left;
 }
 
 #playTime {
@@ -104,8 +102,11 @@ button {
   margin-bottom: 10px;
   /* provide spacing around the text */
   padding: 40px;
+  text-align: left;
 } 
- 
+
+
+/* line items */
 li {
   height: 50px;
   margin-top: 5px;
@@ -120,12 +121,6 @@ li {
 
 li:hover {
   background-color: #8caad2;
-}
-
-#answer-image {
-  float: left;
-  padding-right: 1em;
-  padding-top: 0.25em;
 }
 
 /* Footer */
@@ -143,18 +138,14 @@ li:hover {
 /* media query for screen size to be applied to center text to switch at same time as navbar */
 @media (max-width: 768px) {
   .container-fluid {
-    /* removes paddding on either side */
+    /* removes padding on either side */
     padding-left: 0;
     padding-right: 0;
   }
 
-/* removes verticle lines between text */
+/* removes vertical lines between text */
   li {
     border-right: none;
   }
 
-/* collapses space between menu options when they stack vertically*/
-  .nav-link{
-    padding: 1px;
-  }
 }

@@ -1,3 +1,4 @@
+// Basic game questions
 var jsQuestions = [
   {
     title: "Which tag is used to mark the beginning of a paragraph?",

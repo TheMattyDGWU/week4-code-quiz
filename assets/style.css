@@ -42,10 +42,7 @@ button {
   background-color: #457b9d;
 }
 
-.startJSQuiz {
-  display: flex; justify-content: center;
-}
-
+/* _______________________ NavBar INSIDE the Jumbotron ________________ */
 .navbar {
   background-color: #d2b48c;  
   color: black;  
@@ -98,6 +95,10 @@ button {
   text-align: left;
 } 
 
+/* Centering the Quiz Start button */
+.startJSQuiz {
+  display: flex; justify-content: center;
+}
 
 /* Line Items - Questions/Answers */
 li {

@@ -5,7 +5,7 @@
   width: 50px;
   text-align: center;
   text-decoration: none;
-  border-radius:50%;
+  border-radius: 50%;
 }
 
 /* Hover Effect for Social Media Buttons */
@@ -15,7 +15,7 @@
 
 /* Social Media button colors */
 .fa-facebook {
-  background: #3B5998;
+  background: #3b5998;
   color: white;
 }
 
@@ -44,8 +44,8 @@ button {
 
 /* _______________________ NavBar INSIDE the Jumbotron ________________ */
 .navbar {
-  background-color: #d2b48c;  
-  color: black;  
+  background-color: #d2b48c;
+  color: black;
   padding-bottom: 0;
   padding-left: 0;
   border-bottom: solid;
@@ -66,17 +66,16 @@ button {
   padding-right: 5%;
 }
 
-
 /* Change the color of links on hover */
 .nav-link:hover {
-  background-color: white;  
+  background-color: white;
   color: #666;
 }
 
 /* collapses space between menu options when they stack vertically */
-  .nav-link{
-    padding: 1px;
-  }
+.nav-link {
+  padding: 1px;
+}
 
 #details {
   /* background-color: #db248c;   */
@@ -93,11 +92,12 @@ button {
   margin-bottom: 10px;
   padding: 40px;
   text-align: left;
-} 
+}
 
 /* Centering the Quiz Start button */
 .startJSQuiz {
-  display: flex; justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* Line Items - Questions/Answers */
@@ -119,15 +119,15 @@ li:hover {
 
 /* Footer */
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:#343A40;
-    color: white;
-    text-align: center;
-    z-index: 1;
-}        
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
 
 /* media query for screen size to be applied to center text to switch at same time as navbar */
 @media (max-width: 768px) {
@@ -137,9 +137,8 @@ li:hover {
     padding-right: 0;
   }
 
-/* removes vertical lines between text */
+  /* removes vertical lines between text */
   li {
     border-right: none;
   }
-
 }

@@ -1,4 +1,4 @@
-<b>Week 4 - a JavaScript Quiz!!</b>
+<b>JavaScript Quiz!!</b>
 
 <b>Project Link:</b> https://theycallmemattyd.github.io/week4-code-quiz/
 

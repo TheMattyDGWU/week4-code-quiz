@@ -1,6 +1,6 @@
 # JavaScript Coding Quiz</br>
 
-<b>Project Link:</b> https://theycallmemattyd.github.io/week4-code-quiz/
+<b>Project Link:</b> https://theycallmemattyd.github.io/Coding_Quiz/
 
 Features include: Start Button, Timer, multiple questions, and incorrect questions answered invoke a time penalty.
 When either all questions are answered or the timer reaches zero, then the game is over. User can save their initials and score. Top 5 scores are displayed.
